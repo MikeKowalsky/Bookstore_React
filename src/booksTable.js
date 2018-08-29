@@ -6,15 +6,16 @@ const booksTable = (props) => {
     // console.log(props.booksArray);
     // console.log(props.booksArray[0]);
 
-    const styleTable = {
-        border: '1px solid black',
-        borderCollapse: 'collapse',
-        margin: '20px auto'
-    }
-    
-    const styleTh = {
-        border: '1px solid black',
-        padding: '5px',
+    const style = {
+        table: {
+            border: '1px solid black',
+            borderCollapse: 'collapse',
+            margin: '20px auto'
+        },
+        th: {
+            border: '1px solid black',
+            padding: '5px',
+        }
     }
     
     const rowsArray = props.booksArray.map((row, index) => 
@@ -25,12 +26,12 @@ const booksTable = (props) => {
     );
 
     return (
-        <table style={styleTable}>
+        <table style={style.table}>
             <thead>
                 <tr>
-                    <th style={styleTh}>Titulo</th>
-                    <th style={styleTh}>Idioma</th>
-                    <th style={styleTh}>Portada</th>
+                    <th style={style.th}>Titulo</th>
+                    <th style={style.th}>Idioma</th>
+                    <th style={style.th}>Portada</th>
                 </tr>
             </thead>
             <tbody>

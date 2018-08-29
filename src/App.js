@@ -9,6 +9,7 @@ class App extends Component {
     this.state = {
       books: [],
       isLoading: true,
+      showTable: true,
     };
   }
 
@@ -23,12 +24,32 @@ class App extends Component {
       );    
   }
 
+  handleHideShowClick = () => {
+    console.log('hide/show table');
+    
+    const currentState = {...this.state};
+    currentState.showTable = !currentState.showTable;
+    this.setState(currentState);
+  }
+
   render() {
 
     const style = {
-      color: 'red',
-      fontWeight: 'bold',
-      paddingLeft: '10px',
+      p: {
+        color: 'red',
+        fontWeight: 'bold',
+        marginLeft: '10px',
+      },
+      btn: {
+        marginLeft: '10px',
+      }
+    }
+
+    let table;
+    if(this.state.showTable){
+      table = <BooksTable booksArray={this.state.books} />;
+    } else {
+      table = '';
     }
 
     if(this.state.isLoading){
@@ -41,9 +62,15 @@ class App extends Component {
           <h1>Bookstore in React</h1>
         </header>
 
-        <p style={style}>Table with books</p>
+        <p style={style.p}>Table with books</p>
+        <input 
+          type="button"
+          value="Hide/Show table"
+          style={style.btn}
+          onClick={() => this.handleHideShowClick()} 
+        />
 
-        <BooksTable booksArray={this.state.books}/>
+        {table}
 
       </div>
     );
