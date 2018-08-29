@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import BooksTable from './BooksTable';
 
 class App extends Component {
   constructor(props){
@@ -8,6 +8,7 @@ class App extends Component {
 
     this.state = {
       books: [],
+      isLoading: true,
     };
   }
 
@@ -16,21 +17,34 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({ books: data.books });
-        console.log(this.state.books[0]);
+        // console.log(this.state.books[0]);
+        this.setState({ isLoading: false})
         }
       );    
   }
 
-
-
   render() {
+
+    const style = {
+      color: 'red',
+      fontWeight: 'bold',
+      paddingLeft: '10px',
+    }
+
+    if(this.state.isLoading){
+      return <p>Loading ...</p>
+    }
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+      <div>
+        <header>
+          <h1>Bookstore in React</h1>
         </header>
-        <p>Yo! Mike!</p>
+
+        <p style={style}>Table with books</p>
+
+        <BooksTable booksArray={this.state.books}/>
+
       </div>
     );
   }
