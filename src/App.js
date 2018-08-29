@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import BooksTable from './BooksTable';
+import CardContainer from './CardContainer';
 
 class App extends Component {
   constructor(props){
@@ -9,7 +10,8 @@ class App extends Component {
     this.state = {
       books: [],
       isLoading: true,
-      showTable: true,
+      showTable: false,
+      showCards: true,
     };
   }
 
@@ -24,11 +26,19 @@ class App extends Component {
       );    
   }
 
-  handleHideShowClick = () => {
+  handleHideShowTable = () => {
     console.log('hide/show table');
     
     const currentState = {...this.state};
     currentState.showTable = !currentState.showTable;
+    this.setState(currentState);
+  }
+
+  handleHideShowCards = () => {
+    console.log('hide/show cards');
+
+    const currentState = {...this.state};
+    currentState.showCards = !currentState.showCards;
     this.setState(currentState);
   }
 
@@ -52,6 +62,13 @@ class App extends Component {
       table = '';
     }
 
+    let cards;
+    if(this.state.showCards){
+      cards = <CardContainer booksArray={this.state.books} />;
+    } else {
+      cards = '';
+    }
+
     if(this.state.isLoading){
       return <p>Loading ...</p>
     }
@@ -63,13 +80,22 @@ class App extends Component {
         </header>
 
         <p style={style.p}>Table with books</p>
-        <input 
-          type="button"
-          value="Hide/Show table"
-          style={style.btn}
-          onClick={() => this.handleHideShowClick()} 
-        />
+        <div>
+          <input 
+            type="button"
+            value="Hide/Show table"
+            style={style.btn}
+            onClick={() => this.handleHideShowTable()} 
+          />
+          <input 
+            type="button"
+            value="Hide/Show cards"
+            style={style.btn}
+            onClick={() => this.handleHideShowCards()} 
+          />
+        </div>
 
+        {cards}
         {table}
 
       </div>

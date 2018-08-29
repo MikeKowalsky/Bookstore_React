@@ -16,7 +16,6 @@ const booksRow = (props) => {
             <td style={style}>{props.oneRow.portada}</td>
         </tr>
     );
-
 }
 
 export default booksRow;
