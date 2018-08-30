@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
-import BooksTable from './BooksTable';
-import CardContainer from './CardContainer';
+import Button from '@material-ui/core/Button';
+
+import Header from '../components/Header';
+import BooksTable from '../components/BooksTable';
+import CardContainer from '../components/CardContainer';
+import Footer from '../components/Footer';
 
 class App extends Component {
   constructor(props){
@@ -26,33 +30,27 @@ class App extends Component {
       );    
   }
 
-  handleHideShowTable = () => {
+  handleHideShow = () => {
     console.log('hide/show table');
     
     const currentState = {...this.state};
     currentState.showTable = !currentState.showTable;
-    this.setState(currentState);
-  }
-
-  handleHideShowCards = () => {
-    console.log('hide/show cards');
-
-    const currentState = {...this.state};
     currentState.showCards = !currentState.showCards;
     this.setState(currentState);
   }
 
   render() {
 
-    const style = {
+    const styles = {
       p: {
-        color: 'red',
+        color: '#3f51b5',
         fontWeight: 'bold',
-        marginLeft: '10px',
+        marginLeft: 10,
       },
       btn: {
-        marginLeft: '10px',
-      }
+        margin: 10,
+        padding: '0 10px',
+      },
     }
 
     let table;
@@ -70,40 +68,41 @@ class App extends Component {
     }
 
     if(this.state.isLoading){
-      return <p>Loading ...</p>
+      return  <div>
+                <p>Loading ...</p>
+                <p>Please wait a moment!</p>
+              </div>
     }
 
     return (
       <div>
-        <header>
-          <h1>Bookstore in React</h1>
-        </header>
+        <Header />
 
-        <p style={style.p}>Table with books</p>
+        <p style={styles.p}>Our catalog</p>
         <div>
-          <input 
+          <Button 
+            variant="outlined" 
+            color="secondary"  
+            size="small" 
+            onClick={() => this.handleHideShow()}
+            style={styles.btn}>
+            Switch table/cards
+          </Button>
+          {/* <input 
             type="button"
-            value="Hide/Show table"
-            style={style.btn}
-            onClick={() => this.handleHideShowTable()} 
-          />
-          <input 
-            type="button"
-            value="Hide/Show cards"
-            style={style.btn}
-            onClick={() => this.handleHideShowCards()} 
-          />
+            value="Switch table/cards"
+            style={styles.btn}
+            onClick={() => this.handleHideShow()}
+          /> */}
         </div>
 
         {cards}
         {table}
 
+        <Footer />
       </div>
     );
   }
 }
 
 export default App;
-
-
-

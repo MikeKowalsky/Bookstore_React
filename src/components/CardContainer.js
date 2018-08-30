@@ -13,12 +13,13 @@ const cardContainer = (props) => {
     );
 
     const style = {
-        padding: '10px',
-        marginTop: '10px',
-        border: '2px solid red',
+        padding: 10,
+        margin: 10,
+        border: '2px solid #3f51b5',
         borderRadius: '10px',
         display: "flex",
         flexWrap: "wrap",
+        justifyContent: "space-between",
     }
 
     return (
@@ -26,7 +27,6 @@ const cardContainer = (props) => {
             {cards}
         </div>
     );
-
 }
 
 export default cardContainer;
