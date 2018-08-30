@@ -1,4 +1,3 @@
 learning 
 react
-fetching data
-simple components
+material-ui
