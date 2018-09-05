@@ -19,7 +19,7 @@ const cardContainer = (props) => {
         borderRadius: '10px',
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "space-between",
+        justifyContent: "center",
     }
 
     return (

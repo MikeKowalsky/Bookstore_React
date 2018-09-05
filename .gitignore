@@ -19,7 +19,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-#old files
-/src/components/BooksRow.js
-/src/components/BooksTable.js
