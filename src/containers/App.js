@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
 
 import Header from '../components/Header';
 import TableSec from '../components/TableSec';
@@ -59,7 +60,8 @@ class App extends Component {
       p: {
         color: '#3f51b5',
         fontWeight: 'bold',
-        marginLeft: 10,
+        margin: 10,
+        fontSize: '1.5em',
       },
       btn: {
         margin: 10,
@@ -68,16 +70,21 @@ class App extends Component {
       container: {
         display: 'flex',
         justifyContent: 'space-between',
+        alignItems: 'center',
       },
       textField: {
-        margin: 10,
-        width: 400,
+        width: 200,
       },
+      gridItem: {
+        display: 'flex',
+        justifyContent: 'center',
+      }
     }
 
     let table;
     if(this.state.showTable){
       table = <TableSec booksArray={this.state.newBooks} />;
+      //table = <BooksTable booksArray={this.state.books}/>;
     } else {
       table = '';
     }
@@ -100,31 +107,36 @@ class App extends Component {
       <div>
         <Header />
 
-        <p style={styles.p}>Our catalog</p>
+        <Grid style={styles.container} container>
 
-        <div style={styles.container}>
+          <Grid item xs={12} sm={4} style={styles.gridItem}>
+            <p style={styles.p}>Our catalog:</p>
+          </Grid>
 
-          <form>
-            <TextField
-              id="search"
-              label="Search field"
-              type="search"
-              style={styles.textField}
-              margin="normal"
-              onChange={(e) => this.handleChange(e)}
-            />
-          </form>
+          <Grid item xs={12} sm={4} style={styles.gridItem}>
+            <form style={styles.form}>
+              <TextField
+                id="search"
+                label="Search field"
+                type="search"
+                style={styles.textField}
+                onChange={(e) => this.handleChange(e)}
+              />
+            </form>
+          </Grid>
 
-          <Button 
-            variant="outlined" 
-            color="secondary"  
-            size="small" 
-            onClick={() => this.handleHideShow()}
-            style={styles.btn}>
-            Switch table/cards
-          </Button>
+          <Grid item xs={12} sm={4} style={styles.gridItem}>
+            <Button 
+              variant="outlined" 
+              color="secondary"  
+              size="small" 
+              onClick={() => this.handleHideShow()}
+              style={styles.btn}>
+              Switch table/cards
+            </Button>
+          </Grid>
 
-        </div>
+        </Grid>
 
 
         {cards}

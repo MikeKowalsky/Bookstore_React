@@ -22,26 +22,27 @@ const tableSec = (props) => {
     };
 
   return (
-    <Paper style={styles.root}>
-        <Table style={styles.table}>
-        <TableHead>
-            <TableRow>
-            <TableCell>Titulo</TableCell>
-            <TableCell>Idioma</TableCell>
-            <TableCell>Descripcion</TableCell>
-            </TableRow>
-        </TableHead>
-        <TableBody>
-            {props.booksArray.map((row, index) =>
-                <TableRow key={index}>
-                    <TableCell>{row.titulo}</TableCell>
-                    <TableCell>{row.idioma}</TableCell>
-                    <TableCell>{row.descripcion}</TableCell>
-                </TableRow>
-            )}
-        </TableBody>
-        </Table>
-    </Paper>
+
+        <Paper style={styles.root}>
+            <Table style={styles.table}>
+                <TableHead>
+                    <TableRow>
+                    <TableCell>Titulo</TableCell>
+                    <TableCell>Idioma</TableCell>
+                    <TableCell>Descripcion</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {props.booksArray.map((row, index) =>
+                        <TableRow key={index}>
+                            <TableCell>{row.titulo}</TableCell>
+                            <TableCell>{row.idioma}</TableCell>
+                            <TableCell>{row.descripcion}</TableCell>
+                        </TableRow>
+                    )}
+                </TableBody>
+            </Table>
+        </Paper>
   );
 }
 

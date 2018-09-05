@@ -17,7 +17,7 @@ const footer = () => {
 
     return (
         <footer style={styles.root}>
-                <AppBar position="static" color="primary">
+                <AppBar position="static" color="default">
                     <Toolbar>
                         <Typography style={styles.typo} variant="body1" color="inherit">
                             &copy; 2018 SomeClient | All rights reserved
