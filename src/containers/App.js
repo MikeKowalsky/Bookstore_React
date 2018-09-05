@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 
 import Header from '../components/Header';
-import BooksTable from '../components/BooksTable';
+import TableSec from '../components/TableSec';
 import CardContainer from '../components/CardContainer';
 import Footer from '../components/Footer';
 
@@ -55,7 +55,7 @@ class App extends Component {
 
     let table;
     if(this.state.showTable){
-      table = <BooksTable booksArray={this.state.books} />;
+      table = <TableSec booksArray={this.state.books} />;
     } else {
       table = '';
     }
@@ -88,12 +88,6 @@ class App extends Component {
             style={styles.btn}>
             Switch table/cards
           </Button>
-          {/* <input 
-            type="button"
-            value="Switch table/cards"
-            style={styles.btn}
-            onClick={() => this.handleHideShow()}
-          /> */}
         </div>
 
         {cards}
