@@ -1,13 +1,22 @@
 import React from 'react';
+
+import PropTypes from 'prop-types';
+
 import './Card.css';
 
-const card = (props) => {
 
+const card = (props) => {
     // console.log(props.oneRow);
 
+    // const handleAction;
+    // if(window.innerWidth < 960){
+    //     handleAction = () => {
+            
+    //     }
+    // }
+
     return (
-        <div className="flip-container" onTouchStart={() => {this.classList.toggle('hover');}}>
-        {/* <div className="flip-container" onTouchStart={function() {this.classList.toggle('hover');}}> */}
+        <div className="flip-container" onTouchStart={ () => {this.classList.toggle('hover');} }>
             <div className="flipper">
                 <div className="front">
                     <img src={props.oneRow.portada} alt="portada" />
@@ -20,5 +29,9 @@ const card = (props) => {
         </div>
     );
 }
+
+card.propTypes = {
+    oneRow: PropTypes.object.isRequired,
+};
 
 export default card;

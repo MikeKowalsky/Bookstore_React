@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-
 import Header from '../components/Header';
+import Modal from '../components/Modal';
+import Navigation from '../components/Navigation';
 import TableSec from '../components/TableSec';
 import CardContainer from '../components/CardContainer';
 import Footer from '../components/Footer';
@@ -56,34 +54,9 @@ class App extends Component {
 
   render() {
 
-    const styles = {
-      p: {
-        color: '#3f51b5',
-        fontWeight: 'bold',
-        margin: 10,
-        fontSize: '1.5em',
-      },
-      btn: {
-        margin: 10,
-        padding: '0 10px',
-      },
-      container: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-      },
-      textField: {
-        width: 200,
-      },
-      gridItem: {
-        display: 'flex',
-        justifyContent: 'center',
-      }
-    }
-
     let table;
     if(this.state.showTable){
-      table = <TableSec booksArray={this.state.newBooks} />;
+      table = <TableSec booksArray={ this.state.newBooks } />;
       //table = <BooksTable booksArray={this.state.books}/>;
     } else {
       table = '';
@@ -91,7 +64,7 @@ class App extends Component {
 
     let cards;
     if(this.state.showCards){
-      cards = <CardContainer booksArray={this.state.newBooks} />;
+      cards = <CardContainer booksArray={ this.state.newBooks } />;
     } else {
       cards = '';
     }
@@ -106,38 +79,11 @@ class App extends Component {
     return (
       <div>
         <Header />
+        <Modal />
 
-        <Grid style={styles.container} container>
-
-          <Grid item xs={12} sm={4} style={styles.gridItem}>
-            <p style={styles.p}>Our catalog:</p>
-          </Grid>
-
-          <Grid item xs={12} sm={4} style={styles.gridItem}>
-            <form style={styles.form}>
-              <TextField
-                id="search"
-                label="Search field"
-                type="search"
-                style={styles.textField}
-                onChange={(e) => this.handleChange(e)}
-              />
-            </form>
-          </Grid>
-
-          <Grid item xs={12} sm={4} style={styles.gridItem}>
-            <Button 
-              variant="outlined" 
-              color="secondary"  
-              size="small" 
-              onClick={() => this.handleHideShow()}
-              style={styles.btn}>
-              Switch table/cards
-            </Button>
-          </Grid>
-
-        </Grid>
-
+        <Navigation 
+          changed={this.handleChange}
+          clicked={this.handleHideShow} />
 
         {cards}
         {table}
