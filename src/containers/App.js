@@ -5,6 +5,7 @@ import Navigation from '../components/Navigation';
 import TableSec from '../components/TableSec';
 import CardContainer from '../components/CardContainer';
 import Footer from '../components/Footer';
+import './App.css';
 
 class App extends Component {
   constructor(props){
@@ -69,10 +70,9 @@ class App extends Component {
     }
 
     if(this.state.isLoading){
-      return  <div>
-                <p>Loading ...</p>
-                <p>Please wait a moment!</p>
-              </div>
+      return ( 
+        <div className="loader"></div>
+      );
     }
 
     return (
@@ -84,8 +84,8 @@ class App extends Component {
           changed = { this.handleChange }
           clicked = { this.handleHideShow } />
 
-        {cards}
-        {table}
+        { cards }
+        { table }
 
         <Footer />
       </div>
