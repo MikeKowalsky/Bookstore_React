@@ -82,8 +82,8 @@ class App extends Component {
         <Modal />
 
         <Navigation 
-          changed={this.handleChange}
-          clicked={this.handleHideShow} />
+          changed = { this.handleChange }
+          clicked = { this.handleHideShow } />
 
         {cards}
         {table}

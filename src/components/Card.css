@@ -6,7 +6,7 @@
 	margin: 5px;
 }
 	/* flip the pane when hovered */
-	.flip-container:hover .flipper, .flip-container.hover .flipper {
+	.flip-container:hover .flipper {
 		transform: rotateY(180deg);
 	}
 
@@ -19,6 +19,14 @@
 	.flip-container, .front, .back {
 		width: 150px;
 		height: 225px;
+	}
+
+	.flip-container:hover .flipper {
+		transform: rotate(0);
+	}
+
+	.flip-container.hover .flipper{
+		transform: rotateY(180deg);
 	}
 }
 
