@@ -1,9 +1,7 @@
 import React from 'react';
-
-import picture from '../assets/modalPict.jpg';
-
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import picture from '../assets/modalPict.jpg';
 
 const styles = theme => ({
     root: {

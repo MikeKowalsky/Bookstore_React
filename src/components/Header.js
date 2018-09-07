@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from '../assets/booksSM.jpg';
-
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -64,8 +63,8 @@ const header = (props) => {
                     </Toolbar>
                 </AppBar>
             </div>
-
         </header>
+        
         // <header style={styles.root}>
         //     <h1>Bookstore in React &amp;&amp; Material-UI</h1>
         //     <img style={styles.img} src={logo} alt="logo"/>

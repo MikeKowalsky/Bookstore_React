@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -7,12 +6,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-
 const tableSec = (props) => {
 
     const styles = {
         root: {
-            // width: '90%',
             margin: 20,
             overflowX: 'auto',
         },
@@ -22,7 +19,6 @@ const tableSec = (props) => {
     };
 
   return (
-
         <Paper style={styles.root}>
             <Table style={styles.table}>
                 <TableHead>

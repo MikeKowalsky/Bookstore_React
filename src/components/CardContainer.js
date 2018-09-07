@@ -1,10 +1,7 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-
 import Card from './Card';
-// import CardMobile from './CardMobile';
 
 const styles = {
     root:{
@@ -22,24 +19,12 @@ const cardContainer = (props) => {
     const  { classes } = props;
     // console.log(props.booksArray[0]);
 
-    let cards;
-    // console.log(window.innerWidth);
-
-    // if(window.innerWidth < 960){
-    //     cards = props.booksArray.map((row, index) => 
-    //         <CardMobile
-    //             key = { index }
-    //             oneRow = { row } 
-    //         />
-    //     );
-    // } else {
-        cards = props.booksArray.map((row, index) => 
-            <Card
-                key = { index }
-                oneRow = { row } 
-            />
-        );
-    // }  
+    const cards = props.booksArray.map((row, index) => 
+        <Card
+            key = { index }
+            oneRow = { row } 
+        />
+    );
 
     return (
         <div className={ classes.root }>
