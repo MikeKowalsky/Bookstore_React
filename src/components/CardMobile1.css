@@ -5,7 +5,10 @@
 	perspective: 1000px;
 	margin: 5px;
 }
-
+	/* flip the pane when hovered */
+	.flip-container-M:hover .flipper, .flip-container-M.hover .flipper {
+		transform: rotateY(180deg);
+	}
 
 .flip-container-M, .front-M, .back-M {
 	width: 200px;
@@ -22,6 +25,7 @@
 /* flip speed goes here */
 .flipper-M {
 	transition: 0.6s;
+	transform-style: preserve-3d;
 
 	position: relative;
 }
@@ -35,6 +39,17 @@
 	left: 0;
 }
 
+/* front pane, placed above back */
+.front-M {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back-M {
+	transform: rotateY(180deg);
+}
 /*flipper end*/
 
 img{

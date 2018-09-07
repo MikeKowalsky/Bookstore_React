@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import './CardMobile.css';
+import './CardMobile1.css';
 
 
 const cardMobile = (props) => {
@@ -23,14 +23,15 @@ const cardMobile = (props) => {
     // }
 
     return (
-        <div className="flip-container">
+        // <div className="flip-container-M">
+        <div className="flip-container-M" onTouchStart={ () => {this.classList.toggle('hover').bind(this);} }>
         {/* <div className="flip-container" onClick={ () => { showFront = !showFront; }}> */}
-            <div className="flipper">
+            <div className="flipper-M">
                 {/* {cardView} */}
-                <div className="front">
+                <div className="front-M">
                     <img src={props.oneRow.portada} alt="portada" />
                 </div>
-                <div className="back">
+                <div className="back-M">
                     <h3>{props.oneRow.titulo}</h3>
                     <span>{props.oneRow.descripcion}</span>
                 </div>
