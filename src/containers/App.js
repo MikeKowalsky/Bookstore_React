@@ -26,7 +26,6 @@ class App extends Component {
       .then(data => {
         this.setState({ books: data.books });
         this.setState({ newBooks: data.books });
-        // console.log(this.state.books[0]);
         this.setState({ isLoading: false})
         }
       );    
@@ -41,14 +40,9 @@ class App extends Component {
 
   handleChange = (e) => {
     const currentState = {...this.state};
-
-    let newBooks = currentState.books.filter(b => {
-      let titleFilter = b.titulo.includes(e.target.value) ? true : false;
-      let descriptionFilter = b.descripcion.includes(e.target.value) ? true : false;
-      return titleFilter || descriptionFilter;
-    })
-
-    currentState.newBooks = newBooks;
+    currentState.newBooks = currentState.books.filter(str => 
+      str.titulo.toLowerCase().includes(e.target.value.toLowerCase()) || str.descripcion.toLowerCase().includes(e.target.value.toLowerCase())
+    )
     this.setState(currentState);
   }
 

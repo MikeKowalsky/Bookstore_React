@@ -23,9 +23,9 @@ const tableSec = (props) => {
             <Table style={styles.table}>
                 <TableHead>
                     <TableRow>
-                    <TableCell>Titulo</TableCell>
-                    <TableCell>Idioma</TableCell>
-                    <TableCell>Descripcion</TableCell>
+                        <TableCell>Titulo</TableCell>
+                        <TableCell>Idioma</TableCell>
+                        <TableCell>Descripcion</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

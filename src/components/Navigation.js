@@ -49,7 +49,7 @@ const navigation = (props) => {
                 <form>
                     <TextField
                         id="search"
-                        label="Search field"
+                        label="Search ..."
                         type="search"
                         className={ classes.textField }
                         onChange={ (e) => props.changed(e) } />
